@@ -6,10 +6,20 @@ fixture `Personal Details Tests`            // Notice the back-tick, NOT a singl
     .page `../src/practice_page.html`     // notice what heppens when the test is run...  Add semicolon if no optional elements
 
     test('test username', async t => {
-        const username = Selector('#username');
+        const firstname = Selector('#firstname');
+        const lastname = Selector('#lastname');
+        const age = Selector('#age');
+        const birthday = Selector('#birthday');
+        
 
         await t     // We wait on a Promise
-            .typeText(username, 'species8472')
-            .expect(username.value).contains('species8472', 'input contains the test "species8472"')
+            .expect(age.length).eql(0,'age is blank')
+            .typeText(firstname, 'john')
+            .typeText(lastname, 'smith')
+            .typeText(birthday, '2017-05-05')
+            .expect(firstname.value).contains('John', 'input contains the test "John"')
+            .expect(lastname.value).contains('Smith', 'input contains the test "Smith"')
+            .expect(age.innerText).contains('3','Age is equal to 3');
+    
         await sleep(3000);
     });
