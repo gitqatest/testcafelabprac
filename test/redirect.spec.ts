@@ -11,7 +11,7 @@ fixture `Page Redirection Tests`            // Notice the back-tick, NOT a singl
 
     test.skip('current location', async t => {
         const location = await getWindowLocation();
-        const expectedResult = 'file:///C:/work/git/nodejs-sky/testcafe-quicklab-practice_tests/src/practice_page.html';
+        const expectedResult = 'file:///C:/work/testcafe-quicklab-practice/src/practice_page.html';
 
         console.log( location );
 
